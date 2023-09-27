@@ -1,33 +1,29 @@
-import { ApolloServer, gql } from 'apollo-server-express'
+import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
 
+import { fixtures } from './fixtures/fixtures'
+import { createTypeDefs } from './intefaces/typeDefs'
+import resolvers from './resolvers/resolvers'
+
 const app = express()
-const port = process.env.PORT || 4000
+const PORT = 4000
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`
+const server = new ApolloServer({
+  typeDefs: createTypeDefs(),
+  resolvers,
+  context: { fixtures }
+})
 
-const resolvers = {
-  Query: {
-    hello: () => 'Hello, World!'
-  }
-}
-
-async function startServer() {
-  const server = new ApolloServer({ typeDefs, resolvers })
-
+const startServer = async () => {
   await server.start()
 
   server.applyMiddleware({ app })
 
-  app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}/graphql`)
+  app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`)
   })
 }
 
 startServer().catch(error => {
-  console.error('Error starting the server:', error)
+  console.error('Error starting server:', error)
 })
