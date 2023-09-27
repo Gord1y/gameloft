@@ -1,4 +1,4 @@
-## This is a GraphQL server built using Apollo Server, Express, TypeScript, and other technologies. It serves as the backend for your application and provides access to your data through a GraphQL API.
+# This is a Backend for GameLoft Test Task By Gord1y.
 
 ## Getting Started
 
@@ -14,7 +14,7 @@ Before you begin, ensure you have the following prerequisites installed on your 
 1. Clone this repository to your local machine:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Gord1y/gameloft.git
 ```
 
 2. Navigate to the project directory:
@@ -180,4 +180,4 @@ createdAt: A string representing the message creation timestamp.
 
 #### typescript: TypeScript language support
 
-#### [Other dependencies used in your project]
+#### and other
