@@ -30,12 +30,14 @@ export const AppContextProvider: React.FC<PropsWithChildren> = ({
   const [likedCharacters, setLikedCharacters] = useState<Character[]>([])
 
   const likeCharacter = (character: Character) => {
-    setLikedCharacters(prev => [...prev, character])
+    likedCharacters.some(likedCharacter => likedCharacter === character)
+      ? null
+      : setLikedCharacters(prev => [...prev, character])
   }
 
   const unlikeCharacter = (character: Character) => {
     setLikedCharacters(prev =>
-      prev.filter(likedCharacter => likedCharacter !== character)
+      prev.filter(likedCharacter => likedCharacter.id !== character.id)
     )
   }
 
