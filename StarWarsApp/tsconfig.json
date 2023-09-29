@@ -26,9 +26,6 @@
     "allowJs": false,
     "skipDefaultLibCheck": true,
     "baseUrl": "./",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "types": ["react", "react-native"],
     "lib": ["ESNext", "DOM"]
   },
